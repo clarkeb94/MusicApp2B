@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Music.Models.Album>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Albums</h2>
+<div>
+    <a href="~/Albums/Create" class="btn btn-sm btn-primary">Add Album</a>
+</div>
+<br />
+<div>
+    @using (Html.BeginForm())
+    { <p>@Html.TextBox("searchString") <input type="submit" value="Search" /></p> }
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.AlbumNameSortParam })</th>
+            <th>@Html.ActionLink("Artist", "Index", new { sortOrder = ViewBag.ArtistNameSortParam })</th>
+            <th>@Html.ActionLink("Genre", "Index", new { sortOrder = ViewBag.GenreNameSortParam })</th>
+            <th>@Html.ActionLink("Price", "Index", new { sortOrder = ViewBag.PriceSortParam })</th>
+            <th>@Html.ActionLink("Likes", "Index", new { sortOrder = ViewBag.LikesSortParam })</th>
+        </tr>
+    </thead>
+    @foreach (var album in Model)
+    {
+        <tr>
+            <td>@album.Title</td>
+            <td>@album.Artist.Name</td>
+            <td>@album.Genre.Name</td>
+            <td>@album.Price</td>
+            <td>@album.Likes</td>
+
+            <td>
+                @using (Html.BeginForm("Likes", "Albums", new { id = album.AlbumID }, FormMethod.Post))
+                {
+                    <button type="submit" id=@album.AlbumID class="btn btn-xs btn-success">Like</button>
+                }
+            </td>
+
+            <td>
+                <a href="@Url.Action("Edit", "Albums", new { id = album.AlbumID })" class="btn btn-xs btn-warning">Edit</a>
+                <a href="@Url.Action("Details", "Albums", new { id = album.AlbumID })" class="btn btn-xs btn-info">Details</a>
+                <a href="@Url.Action("Delete", "Albums", new { id = album.AlbumID })" class="btn btn-xs btn-danger">Delete</a>
+            </td>
+           
+        </tr>
+    }
+</table>

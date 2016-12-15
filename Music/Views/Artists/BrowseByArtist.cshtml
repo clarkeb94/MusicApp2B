@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Music.Models.Album>
+
+@{
+    ViewBag.Title = "BrowseByArtist";
+}
+
+<h2>@ViewBag.header Albums:</h2>
+
+<table>
+    @foreach (var item in Model)
+    {
+
+        
+            <tr>
+                <td>
+                    <a href="/Albums/Details/@item.AlbumID">@Html.DisplayFor(modelItem => item.Title)</a>
+                </td>
+
+            </tr>
+       
+    }
+
+</table>
+<br />
+<br />
+<a href="/Artists/Index" class="btn btn-sm btn-default">Back</a>

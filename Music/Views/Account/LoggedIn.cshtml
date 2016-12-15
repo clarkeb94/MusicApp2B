@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "LoggedIn";
+}
+
+
+    
+
+    @if (Session["UserID"] != null)
+    {
+        <h2>Hello @Session["Username"].</h2>
+        
+       
+    }
+
+<a class="btn btn-default btn-default" href=/Account/Playlist>View Playlist</a>
+<a class="btn btn-default btn-default" href="/">Logout</a>
+

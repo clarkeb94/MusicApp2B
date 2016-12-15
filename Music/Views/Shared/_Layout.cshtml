@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Content/Styles.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My Music Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div id="container">
+        <div id="footer"><p>&copy; @DateTime.Now.Year - Brandon Clarke Music Application</p></div>
+    </div>
+    <nav class="navbar navbar-default">
+        <a class="btn btn-lg btn-default" href="/">
+            <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+        </a>
+        <a class="btn btn-lg btn-default" href="~/Account/Login">Login</a>
+        <a class="btn btn-lg btn-default" href="~/Account/Register">Register</a>
+       
+        
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

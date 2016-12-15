@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Music.Models.Genre>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Genres</h2>
+<p>
+    <a href="~/Genres/Create" class="btn btn-sm btn-primary">Add Genre</a>
+</p>
+<br />
+<b>Existing Genres:</b>
+<br />
+
+<table class="success">
+    <tbody>
+        <tr>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    <a href="/Genres/BrowseByGenre/@item.GenreID">@item.Name</a>
+                </td>
+
+            </tr>
+            }
+            <tr />
+
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+

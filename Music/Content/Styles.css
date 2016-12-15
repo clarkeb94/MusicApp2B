@@ -1,0 +1,24 @@
+﻿    
+#footer {
+  background-color: black;
+  color: white;  
+  text-align: center;       
+  width: 100%;    
+  position:absolute;
+  bottom:0;
+  padding-bottom: 0;
+  
+}
+
+
+
+
+h1{
+    text-align: center;
+}
+
+.table th{ 
+     border-top: none !important; 
+ }
+
+

@@ -1,0 +1,39 @@
+
+@model IEnumerable<Music.Models.Artist>
+@{
+    ViewBag.Title = "Artists";
+}
+<h2>Artists</h2>
+
+<p>
+    <a href="~/Artists/Create" class="btn btn-sm btn-primary">Add Artist</a>
+</p>
+<br />
+
+<table class="table">
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bio)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bio)
+            </td>
+            <td>
+                <a href="@Url.Action("Details", "Artists", new { id = item.ArtistID })" class="btn btn-xs btn-info">Details</a>
+                <a href="@Url.Action("BrowseByArtist", "Artists", new { id = item.ArtistID })" class="btn btn-xs btn-info">Albums</a>
+            </td>
+        </tr>
+    }
+</table>
